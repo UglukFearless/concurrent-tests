@@ -1,7 +1,7 @@
 ﻿
 namespace ConcurrentTests.Examples;
 
-internal class _01_LockCounter
+internal class _01_LockCounter : IExample
 {
     private int _unsafeCounter = 0;
     private int _lockCounter = 0;
