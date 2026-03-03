@@ -11,4 +11,8 @@ _02_SemaphoreDownloader example02 = new();
 await example02.DoAction();
 Console.WriteLine();
 
+_03_MutexSingleInstance example03 = new();
+await example03.DoAction();
+Console.WriteLine();
+
 Console.WriteLine("Done.");
