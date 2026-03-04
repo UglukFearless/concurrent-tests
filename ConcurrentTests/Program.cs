@@ -15,4 +15,8 @@ _03_MutexSingleInstance example03 = new();
 await example03.DoAction();
 Console.WriteLine();
 
+_04_AutoResetSignaling example04 = new();
+await example04.DoAction();
+Console.WriteLine();
+
 Console.WriteLine("Done.");

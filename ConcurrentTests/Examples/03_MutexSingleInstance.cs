@@ -26,6 +26,7 @@ internal class _03_MutexSingleInstance : IExample
         finally
         {
             mutex.ReleaseMutex();
+            mutex.Dispose();
         }      
     }
 }
