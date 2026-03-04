@@ -19,4 +19,8 @@ _04_AutoResetSignaling example04 = new();
 await example04.DoAction();
 Console.WriteLine();
 
+_05_TaskWhenAllErrors example05 = new();
+await example05.DoAction();
+Console.WriteLine();
+
 Console.WriteLine("Done.");
