@@ -13,7 +13,7 @@ internal class _05_TaskWhenAllErrors : IExample
             }
 
             Console.WriteLine($"Task {i}: success");
-        })).ToArray(); ;
+        })).ToArray();
 
         var all = Task.WhenAll(tasks);
 

@@ -23,4 +23,8 @@ _05_TaskWhenAllErrors example05 = new();
 await example05.DoAction();
 Console.WriteLine();
 
+_06_InterlockedCounter example06 = new();
+await example06.DoAction();
+Console.WriteLine();
+
 Console.WriteLine("Done.");
