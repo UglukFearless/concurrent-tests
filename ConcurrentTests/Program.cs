@@ -27,4 +27,8 @@ _06_InterlockedCounter example06 = new();
 await example06.DoAction();
 Console.WriteLine();
 
+_07_CancellationTokenDemo example07 = new();
+await example07.DoAction();
+Console.WriteLine();
+
 Console.WriteLine("Done.");
