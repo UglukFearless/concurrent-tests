@@ -31,4 +31,8 @@ _07_CancellationTokenDemo example07 = new();
 await example07.DoAction();
 Console.WriteLine();
 
+_08_DeadlockDemo example08 = new();
+await example08.DoAction();
+Console.WriteLine();
+
 Console.WriteLine("Done.");
