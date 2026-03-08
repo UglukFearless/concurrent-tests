@@ -3,7 +3,8 @@ namespace ConcurrentTests.Examples;
 
 internal class _02_SemaphoreDownloader : IExample
 {
-    
+    public string Name => "Semaphore Downloader";
+    public string ShortDescription => "Simulates throttling of concurrent download tasks.";
 
     public async Task DoAction()
     {
@@ -18,8 +19,8 @@ internal class _02_SemaphoreDownloader : IExample
                 try {
                     await semaphore.WaitAsync();
                     Console.WriteLine($"Task {index}: started");
-                    await Task.Delay(1000); // imitation of long operation
-                    Console.WriteLine($"Task {index}: finished"); ;
+                    await Task.Delay(1000); // simulation of a long operation
+                    Console.WriteLine($"Task {index}: finished");
                 } 
                 finally
                 {

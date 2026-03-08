@@ -2,6 +2,9 @@
 
 internal class _03_MutexSingleInstance : IExample
 {
+    public string Name => "Mutex Single Instance";
+    public string ShortDescription => "Shows single-instance protection with a named mutex.";
+
     private const string MutexName = "Global\\ConcurrentTestsMutex";
     public async Task DoAction()
     {

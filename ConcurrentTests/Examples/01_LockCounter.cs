@@ -3,9 +3,12 @@ namespace ConcurrentTests.Examples;
 
 internal class _01_LockCounter : IExample
 {
+    public string Name => "Lock counter";
+    public string ShortDescription => "Shows safe and unsafe cases for counter.";
+
+
     private int _unsafeCounter = 0;
     private int _lockCounter = 0;
-
     private object _lock = new();
 
     public async Task DoAction()

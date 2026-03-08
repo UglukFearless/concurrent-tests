@@ -3,6 +3,9 @@ namespace ConcurrentTests.Examples;
 
 internal class _08_DeadlockDemo : IExample
 {
+    public string Name => "Deadlock Demo";
+    public string ShortDescription => "Creates a deadlock by acquiring locks in the wrong order.";
+
     private readonly object _lock1 = new();
     private readonly object _lock2 = new();
 

@@ -3,13 +3,16 @@ namespace ConcurrentTests.Examples;
 
 internal class _05_TaskWhenAllErrors : IExample
 {
+    public string Name => "Task WhenAll Errors";
+    public string ShortDescription => "Shows how to aggregate all exceptions from a group of asynchronous tasks.";
+
     public async Task DoAction()
     {
         var tasks = Enumerable.Range(0, 5).Select(i => Task.Run(() =>
         {
             if (i % 2 == 0)
             {
-                throw new Exception($"Exception from {i} task!");
+                throw new Exception($"Exception from task {i}.");
             }
 
             Console.WriteLine($"Task {i}: success");

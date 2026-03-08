@@ -3,6 +3,9 @@ namespace ConcurrentTests.Examples;
 
 internal class _07_CancellationTokenDemo : IExample
 {
+    public string Name => "Cancellation Token Demo";
+    public string ShortDescription => "Shows canceling a SemaphoreSlim wait with CancellationToken.";
+
     private const int Timeout = 2000;
     private const int MaxSemaphoreCount = 1;
 

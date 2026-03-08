@@ -1,38 +1,81 @@
 ﻿using ConcurrentTests.Examples;
 
-Console.WriteLine("Concurrent programming examples:");
+Console.WriteLine("Concurrent programming examples started.");
 Console.WriteLine();
 
-_01_LockCounter example01 = new();
-await example01.DoAction();
-Console.WriteLine();
+List<IExample> examples = new List<IExample>
+{
+    new _01_LockCounter(),
+    new _02_SemaphoreDownloader(),
+    new _03_MutexSingleInstance(),
+    new _04_AutoResetSignaling(),
+    new _05_TaskWhenAllErrors(),
+    new _06_InterlockedCounter(),
+    new _07_CancellationTokenDemo(),
+    new _08_DeadlockDemo(),
+    new _09_ValueTaskCache(),
+};
 
-_02_SemaphoreDownloader example02 = new();
-await example02.DoAction();
-Console.WriteLine();
+do
+{
+    OutputExamplesList(examples);
 
-_03_MutexSingleInstance example03 = new();
-await example03.DoAction();
-Console.WriteLine();
+    var input = 0;
+    try
+    {
+        input = ReadAndValidateInput(examples);
+    }
+    catch (ArgumentException ex)
+    {
+        Console.WriteLine(ex.Message);
+        continue;
+    }
 
-_04_AutoResetSignaling example04 = new();
-await example04.DoAction();
-Console.WriteLine();
+    if (input == 0)
+        break;
 
-_05_TaskWhenAllErrors example05 = new();
-await example05.DoAction();
-Console.WriteLine();
+    var example = examples[input - 1];
+    await ExecuteExample(example);
+    continue;
 
-_06_InterlockedCounter example06 = new();
-await example06.DoAction();
-Console.WriteLine();
+} while (true);
 
-_07_CancellationTokenDemo example07 = new();
-await example07.DoAction();
-Console.WriteLine();
+Console.WriteLine("Program exit...");
 
-_08_DeadlockDemo example08 = new();
-await example08.DoAction();
-Console.WriteLine();
 
-Console.WriteLine("Done.");
+void OutputExamplesList(List<IExample> examples)
+{
+    Console.WriteLine("Available examples:");
+    for (var i = 0; i < examples.Count; i++)
+    {
+        var example = examples[i];
+        Console.WriteLine($"{i + 1} {example.Name} - {example.ShortDescription}");
+    }
+    Console.WriteLine();
+}
+
+int ReadAndValidateInput(List<IExample> examples)
+{
+    Console.WriteLine("Enter an example number to run, or 0 to exit:");
+    var input = Console.ReadLine();
+
+    if (input == null || !int.TryParse(input.Trim(), out var value))
+    {
+        throw new ArgumentException("Invalid input");
+    }
+
+    if (value > examples.Count)
+    {
+        throw new ArgumentOutOfRangeException("Invalid example number - out of range.");
+    }
+
+    return value;
+}
+
+async Task ExecuteExample(IExample example)
+{
+    Console.WriteLine($"Example {example.Name} started...");
+    await example.DoAction();
+    Console.WriteLine($"Example {example.Name} ended.");
+    Console.WriteLine();
+}

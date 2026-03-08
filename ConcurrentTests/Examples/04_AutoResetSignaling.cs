@@ -2,6 +2,9 @@
 
 internal class _04_AutoResetSignaling : IExample
 {
+    public string Name => "Auto Reset Signaling";
+    public string ShortDescription => "Shows difference between auto and manual reset signaling.";
+
     public async Task DoAction()
     {
         await DoWithAutoEvent();

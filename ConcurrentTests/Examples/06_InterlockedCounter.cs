@@ -4,6 +4,10 @@ namespace ConcurrentTests.Examples;
 
 internal class _06_InterlockedCounter : IExample
 {
+    public string Name => "Interlocked Counter";
+    public string ShortDescription => "Compares counter increments using lock and Interlocked.";
+
+
     private int _lockCounter = 0;
     private int _interlockedCounter = 0;
     private readonly object _lock = new();
